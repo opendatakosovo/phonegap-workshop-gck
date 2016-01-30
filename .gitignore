@@ -8,3 +8,4 @@ www/*.js~
 www/js/dist
 www/js/*.js
 .DS_Store
+.idea/
