@@ -2,6 +2,7 @@ var AppRouter = Backbone.Router.extend({
 
     routes:{
         "":"home",
+        "reportPg": "reportPg"
     },
 
     initialize:function () {
@@ -19,6 +20,9 @@ var AppRouter = Backbone.Router.extend({
         this.changePage(new HomeView());
     },
 
+    reportPg: function(){
+        this.changePage(new ReportView());
+    },
 
     changePage:function (page) {
         $(page.el).attr('data-role', 'page');
