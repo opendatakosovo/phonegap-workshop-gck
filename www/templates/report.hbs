@@ -1,3 +1,34 @@
+<script>
+$(document).ready(function(){
+	// Lejo cross-domain qasje per ajax calls
+	$.support.cors = true;
+	$('#btnRaporto').click(function(){
+		var ngjarja = $('#txtarea').val();
+		var tipi = $('#tipetNgacmimeve').val();
+		alert(ngjarja);
+		var emri_raportuesit = $('#emri').val();
+		var raporti_kompletuar = "Raporton: " + emri_raportuesit + " Ngjarja: " + ngjarja; 
+		var raportimi = {
+			"type": [tipi],
+			"story": raporti_kompletuar
+		};
+
+		$.ajax({
+			type: "POST",
+			url: "www.ecshlire.com/api/harassment/report",
+			crossDomain: true,
+			contentType: "application/json",
+			data: JSON.stringify(raportimi),
+			success: function(){
+				alert("Raportimi u krye me sukses!");
+			},
+			error: function(errMessage){
+				alert(errMessage);
+			}
+		});
+	});
+});
+</script>
 <div class="col-xs-12">
 	<h5>Raport ngacmimin!</h5>
 	<br>
@@ -18,8 +49,9 @@
 		</div>
 		<div class="form-group">
 			<label class="control-label">Emri Raportuesit:</label>
-			<input class="form-control" type="text"/>
+			<input id="emri" class="form-control" type="text"/>
 		</div>
 	
-	<button type="button">Raporto</button>
+	<button id="btnRaporto" type="button">Raporto</button>
+	</form>
 </div>
