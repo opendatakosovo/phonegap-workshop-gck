@@ -1,0 +1,57 @@
+<script>
+$(document).ready(function(){
+	// Lejo cross-domain qasje per ajax calls
+	$.support.cors = true;
+	$('#btnRaporto').click(function(){
+		var ngjarja = $('#txtarea').val();
+		var tipi = $('#tipetNgacmimeve').val();
+		alert(ngjarja);
+		var emri_raportuesit = $('#emri').val();
+		var raporti_kompletuar = "Raporton: " + emri_raportuesit + " Ngjarja: " + ngjarja; 
+		var raportimi = {
+			"type": [tipi],
+			"story": raporti_kompletuar
+		};
+
+		$.ajax({
+			type: "POST",
+			url: "www.ecshlire.com/api/harassment/report",
+			crossDomain: true,
+			contentType: "application/json",
+			data: JSON.stringify(raportimi),
+			success: function(){
+				alert("Raportimi u krye me sukses!");
+			},
+			error: function(errMessage){
+				alert(errMessage);
+			}
+		});
+	});
+});
+</script>
+<div class="col-xs-12">
+	<h5>Raport ngacmimin!</h5>
+	<br>
+	<form class="form-horizontal" id="formReport">
+		
+		<div class="form-group">
+
+			<label class="control-label">Trego Ngjarjen:</label>
+		 	<textarea class="form-control" id="txtarea" placeholder="Story..."> </textarea>
+		</div> 
+		<div class="form-group">
+			<label class="control-label">Tipi ngacmimit:</label>
+
+			<select class="form-control" id="tipetNgacmimeve">
+				<option value="Verbal">Verbal</option>
+				<option value="Fizik">Fizik </option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label class="control-label">Emri Raportuesit:</label>
+			<input id="emri" class="form-control" type="text"/>
+		</div>
+	
+	<button id="btnRaporto" type="button">Raporto</button>
+	</form>
+</div>

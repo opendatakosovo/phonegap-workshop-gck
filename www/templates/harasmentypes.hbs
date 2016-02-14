@@ -1,0 +1,80 @@
+<script>
+$(document).ready(function(){
+	
+	$(".btnImg").on("tap",function(){
+		var element_id=$(this).attr("id");
+		var element_name= $(this).attr("name");
+		var styling= $(this).attr("style");
+
+
+			if ($(this).hasClass("selected") ){
+
+			var src =$(this).attr("src").replace("_a.png", ".png");
+			$(this).attr("src",src);
+			$(this).removeClass("selected");
+
+	}
+	else {
+			var src =$(this).attr("src").replace(".png", "_a.png");
+			$(this).attr("src", src);
+			$(this).addClass("selected");
+	}
+
+	});
+
+}
+</script>
+
+<div id = "container">
+<div class="row">
+	<div class="col-xs-4">
+		<button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button>
+	</div>
+	<div class="col-xs-4">
+		<button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button>
+	</div>
+	<div class="col-xs-4">
+		<button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-4"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button></div>
+	<div class="col-xs-4"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button></div>
+	<div class="col-xs-4"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button></div>
+</div>
+<div class="row">
+	<div class="col-xs-4"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button></div>
+	<div class="col-xs-4"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button></div>
+	<div class="col-xs-4"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button></div>
+</div>
+<div class="row">
+	<div class="col-xs-4"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button></div>
+	<div class="col-xs-4"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button></div>
+	<div class="col-xs-4"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-user"></span>
+		</button></div>
+</div>
+<a class="btn btn-primary" href="#reportPg">Continue</a>
+</div>

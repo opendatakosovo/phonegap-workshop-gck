@@ -2,7 +2,8 @@ var AppRouter = Backbone.Router.extend({
 
     routes:{
         "":"home",
-        "reportPg": "reportPg"
+        "reportPg": "reportPg",
+        "harassTypesPg": "harassTypesPg"
     },
 
     initialize:function () {
@@ -22,6 +23,9 @@ var AppRouter = Backbone.Router.extend({
 
     reportPg: function(){
         this.changePage(new ReportView());
+    },
+    harassTypesPg: function(){
+        this.changePage(new HarassTypes())
     },
 
     changePage:function (page) {
