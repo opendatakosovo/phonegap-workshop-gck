@@ -2,8 +2,13 @@ var AppRouter = Backbone.Router.extend({
 
     routes:{
         "":"home",
-        "reportPg": "reportPg",
-        "harassTypesPg": "harassTypesPg"
+        "page1":"page1",
+        "harassmentType": "harassmentType",
+        "perpetratorTypes": "perpetratorTypes",
+        "generateReport": "generateReport",
+        "submitForm": "submitForm",
+        "settingsPage": "settingsPage",
+        "analyticsPage": "analyticsPage"
     },
 
     initialize:function () {
@@ -21,12 +26,31 @@ var AppRouter = Backbone.Router.extend({
         this.changePage(new HomeView());
     },
 
-    reportPg: function(){
-        this.changePage(new ReportView());
+    page1:function () {
+        this.changePage(new ResultView());
     },
-    harassTypesPg: function(){
-        this.changePage(new HarassTypes())
+
+    harassmentType:function () {
+        this.changePage(new HarassmentTypeView());
     },
+
+    perpetratorTypes: function () {
+      this.changePage(new PerpetratorTypesView())
+    },
+
+    generateReport:function () {
+        this.changePage(new GenerateReportView());
+    },
+
+    settingsPage:function () {
+        this.changePage(new SettingsView());
+    },
+
+    analyticsPage:function () {
+        this.changePage(new AnalyticsView());
+    },
+
+
 
     changePage:function (page) {
         $(page.el).attr('data-role', 'page');
@@ -39,7 +63,7 @@ var AppRouter = Backbone.Router.extend({
             }
         });
 
-        $('body').append($(page.el));
+        $('.mainContainer').append($(page.el));
         var transition = "flip";
 
         // We don't want to slide the first page
